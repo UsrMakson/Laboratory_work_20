@@ -21,7 +21,7 @@
     <ClCompile Include="analysis.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Person.cpp">
+    <ClCompile Include="Human.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,8 +29,11 @@
     <ClInclude Include="analysis.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Person.h">
+    <ClInclude Include="Human.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imput.md" />
   </ItemGroup>
 </Project>

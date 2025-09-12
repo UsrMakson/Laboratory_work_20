@@ -141,11 +141,14 @@
   <ItemGroup>
     <ClCompile Include="2.cpp" />
     <ClCompile Include="analysis.cpp" />
-    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Human.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="analysis.h" />
-    <ClInclude Include="Person.h" />
+    <ClInclude Include="Human.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imput.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
