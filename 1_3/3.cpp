@@ -17,23 +17,35 @@ void sub(int temp)
     switch (temp)
     {
     case -1: {cout << "_____чтобы закончить ввод, напишите stop_____"; break; }
-    case 0: {cout << "\nвведите имя: "; break; }
-    case 1: {cout << "\nвведите рост: "; break; }
+    case 0: {cout << "\nвведите Фамилию: "; break; }
+    case 1: {cout << "\nвведите Имя: "; break; }
+    case 2: {cout << "\nвведите Отчество: "; break; }
     default:
         break;
     }
 }
 
-void add_out_of_file(vector<Name>& arr)
+void add_out_of_file(vector<Name>& arr, Name& temp_FIO)
 {
     fstream f;
-    string temp_Name;
-    int temp_height;
+    string temp_SecondName, temp_FirstName, temp_Patronymic;
     f.open("imput.md");
-    while (f >> temp_Name)
+    while (true) 
     {
-        f >> temp_height;
-        //arr.emplace_back(temp_Name, temp_height);
+        f >> temp_SecondName;
+        f >> temp_FirstName;
+        f >> temp_Patronymic;
+        temp_FIO.clear();
+        temp_FIO.Set_SecondName(temp_SecondName);
+        temp_FIO.Set_SecondName(temp_FirstName);
+        temp_FIO.Set_SecondName(temp_Patronymic);
+        if (temp_FIO.is_Empty())
+        {
+            break;
+        }
+        else {
+            arr.push_back(temp_FIO);
+        }
     }
 
 
@@ -43,6 +55,7 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     vector <Name> arr;
+    Name temp_FIO("", "", "");
     bool b = true;
     int n;
     char m;
@@ -52,15 +65,19 @@ int main() {
     sub(-1);
     while (b == true)
     {
-        string temp_Name = "";
-        int temp_height = 0;
+        temp_FIO.clear();
+        string temp_SecondName = "", temp_FirstName = "", temp_Patronymic = "";
         switch (n)
         {
         case 1:
         {
-            sub(0); cin >> temp_Name;
-            sub(1); cin >> temp_height;
-            //arr.emplace_back(temp_Name, temp_height);
+            sub(0); cin >> temp_SecondName;
+            sub(1); cin >> temp_FirstName;
+            sub(2); cin >> temp_Patronymic;
+            temp_FIO.Set_SecondName(temp_SecondName);
+            temp_FIO.Set_FirstName(temp_FirstName);
+            temp_FIO.Set_Patronymic(temp_Patronymic);
+            arr.push_back(temp_FIO);
             cout << "Продолжить? (y - Yes(да) / n - No(нет))\n:";
             cin >> m;
             switch (m)
@@ -71,7 +88,7 @@ int main() {
             }
             break;
         }
-        case 2: {add_out_of_file(arr); b = false; break; }
+        case 2: {add_out_of_file(arr, temp_FIO); b = false; break; }
         default:
             break;
         }

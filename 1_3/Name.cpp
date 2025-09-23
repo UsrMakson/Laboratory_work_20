@@ -2,19 +2,46 @@
 
 using namespace std;
 
-Name::Name(const std::string Second_name, std::string First_name, std::string Father_name) :
-    Second_name(Second_name),
-    First_name(First_name),
-    Father_name(Father_name)
+Name::Name(const std::string Second_name, const std::string First_name, const std::string Father_name)
 {
 }
 
-void Name::print() {
-    cout << Second_name << First_name << Father_name << endl;
+void Name::print() const
+{
+    cout << Second_name <<", " << First_name << ", " << Patronymic << endl;
 }
 
-void Name::clear() {
+void Name::clear() 
+{
     Name::Second_name = "";
     Name::First_name = "";
     Name::First_name = "";
+}
+std::string Name::Get_SecondName() const
+{ 
+    return Second_name;
+}
+std::string Name::Get_FirstName() const
+{ 
+    return First_name; 
+}
+std::string Name::Get_Patronymic() const
+{ 
+    return Patronymic;
+}
+void Name::Set_SecondName(const std::string Second_Name)
+{
+    Second_name = Second_Name;
+}
+void Name::Set_FirstName(const std::string First_Name)
+{ 
+    First_name = First_Name;
+}
+void Name::Set_Patronymic(const std::string patronymic)
+{
+    Patronymic = patronymic;
+}
+bool Name::is_Empty() const
+{
+    return Second_name.empty() && First_name.empty() && Patronymic.empty();
 }
