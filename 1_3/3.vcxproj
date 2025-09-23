@@ -147,6 +147,9 @@
     <ClInclude Include="analysis.h" />
     <ClInclude Include="Name.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imput.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

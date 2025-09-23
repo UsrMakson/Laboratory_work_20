@@ -2,20 +2,45 @@
 
 using namespace std;
 
-Name::Name(const std::string Second_name, const std::string First_name, const std::string Father_name)
+Name::Name(const std::string& Second_name, const std::string& First_name, const std::string& Father_name):
+    Second_name(Second_name),
+    First_name(First_name), 
+    Patronymic(Patronymic)
 {
 }
 
 void Name::print() const
 {
-    cout << Second_name <<", " << First_name << ", " << Patronymic << endl;
+    string result = "";
+    bool needSpace = false;
+
+    if (!Second_name.empty())
+    {
+        result += Second_name;
+        needSpace = true;
+    }
+
+    if (!First_name.empty())
+    {
+        if (needSpace) result += " ";
+        result += First_name;
+        needSpace = true;
+    }
+
+    if (!Patronymic.empty())
+    {
+        if (needSpace) result += " ";
+        result += Patronymic;
+    }
+
+    cout << result << endl;
 }
 
 void Name::clear() 
 {
     Name::Second_name = "";
     Name::First_name = "";
-    Name::First_name = "";
+    Name::Patronymic = "";
 }
 std::string Name::Get_SecondName() const
 { 

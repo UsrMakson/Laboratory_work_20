@@ -27,28 +27,42 @@ void sub(int temp)
 
 void add_out_of_file(vector<Name>& arr, Name& temp_FIO)
 {
-    fstream f;
-    string temp_SecondName, temp_FirstName, temp_Patronymic;
-    f.open("imput.md");
-    while (true) 
+    ifstream f("input.md");
+    string line;
+    while (getline(f, line))
     {
-        f >> temp_SecondName;
-        f >> temp_FirstName;
-        f >> temp_Patronymic;
         temp_FIO.clear();
-        temp_FIO.Set_SecondName(temp_SecondName);
-        temp_FIO.Set_SecondName(temp_FirstName);
-        temp_FIO.Set_SecondName(temp_Patronymic);
-        if (temp_FIO.is_Empty())
+        if (line.empty()) continue;
+        istringstream iss(line);
+        vector<string> words;
+        words.clear();
+        string word ="";
+        while (iss >> word)
         {
+            words.push_back(word);
+        }
+        switch (words.size())
+        {
+        case 1:
+        {
+            temp_FIO.Set_SecondName(words[0]);
+        }
+        case 2:
+        {
+            temp_FIO.Set_SecondName(words[0]);
+            temp_FIO.Set_FirstName(words[1]);
+        }
+        case 3:
+        {
+            temp_FIO.Set_SecondName(words[0]);
+            temp_FIO.Set_FirstName(words[1]);
+            temp_FIO.Set_Patronymic(words[2]);
+        }
+        default:
             break;
         }
-        else {
-            arr.push_back(temp_FIO);
-        }
+        arr.push_back(temp_FIO);
     }
-
-
 }
 int main() {
     setlocale(0, "");
