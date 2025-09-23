@@ -24,7 +24,7 @@ void sub(int temp)
     }
 }
 
-void add_out_of_file(vector<Human>& arr)
+void add_out_of_file(vector<Human>& arr, Human& temp_human)
 {
     fstream f;
     string temp_Name;
@@ -33,7 +33,10 @@ void add_out_of_file(vector<Human>& arr)
     while (f >> temp_Name)
     {
         f >> temp_height;
-        arr.emplace_back(temp_Name, temp_height);
+        temp_human.clear();
+        temp_human.Set_Name(temp_Name);
+        temp_human.Set_Height(temp_height);
+        arr.push_back(temp_human);
     }
 
 
@@ -43,6 +46,7 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     vector <Human> arr;
+    Human temp_human("", 0);
     bool b = true;
     int n;
     char m;
@@ -52,6 +56,7 @@ int main() {
     sub(-1);
     while (b == true)
     {
+        temp_human.clear();
         string temp_Name = "";
         int temp_height = 0;
         switch (n)
@@ -60,7 +65,9 @@ int main() {
         {
             sub(0); cin >> temp_Name;
             sub(1); cin >> temp_height;
-            arr.emplace_back(temp_Name, temp_height);
+            temp_human.Set_Name(temp_Name);
+            temp_human.Set_Height(temp_height);
+            arr.push_back(temp_human);
             cout << "Продолжить? (y - Yes(да) / n - No(нет))\n:";
             cin >> m;
             switch (m)
@@ -71,7 +78,7 @@ int main() {
             }
             break; 
         }
-        case 2: {add_out_of_file(arr); b = false; break; }
+        case 2: {add_out_of_file(arr, temp_human); b = false; break; }
         default:
             break;
         }

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 
 class Human
@@ -9,6 +8,10 @@ private:
 	int height;
 public:
 	Human(const std::string Name, int height);
-	void print();
+	void print() const;
 	void clear();
+	std::string Get_Name() const;
+	int Get_Height() const;
+	void Set_Name(std::string name);
+	void Set_Height(int Height);
 };
