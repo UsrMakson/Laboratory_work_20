@@ -10,5 +10,5 @@ class Analysis
 {
 public:
 	static int get_cin_n();
-	void add_out_of_file(std::vector<Name>& arr, Name& temp_FIO);
+	static void add_out_of_file(std::vector<Name>& arr, Name& temp_FIO);
 };
