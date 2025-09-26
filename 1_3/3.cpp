@@ -46,17 +46,20 @@ void add_out_of_file(vector<Name>& arr, Name& temp_FIO)
         case 1:
         {
             temp_FIO.Set_SecondName(words[0]);
+            break;
         }
         case 2:
         {
             temp_FIO.Set_SecondName(words[0]);
             temp_FIO.Set_FirstName(words[1]);
+            break;
         }
         case 3:
         {
             temp_FIO.Set_SecondName(words[0]);
             temp_FIO.Set_FirstName(words[1]);
             temp_FIO.Set_Patronymic(words[2]);
+            break;
         }
         default:
             break;
@@ -77,7 +80,7 @@ int main() {
     n = Analysis::get_cin_n();
     system("cls");
     sub(-1);
-    while (b == true)
+    while (b)
     {
         temp_FIO.clear();
         string temp_SecondName = "", temp_FirstName = "", temp_Patronymic = "";
@@ -85,13 +88,21 @@ int main() {
         {
         case 1:
         {
-            sub(0); cin >> temp_SecondName;
-            sub(1); cin >> temp_FirstName;
-            sub(2); cin >> temp_Patronymic;
+            sub(0);
+            getline(cin, temp_SecondName);
+            sub(1);
+            getline(cin, temp_FirstName);
+            sub(2);
+            getline(cin, temp_Patronymic);
+            temp_FIO.clear();
             temp_FIO.Set_SecondName(temp_SecondName);
             temp_FIO.Set_FirstName(temp_FirstName);
             temp_FIO.Set_Patronymic(temp_Patronymic);
             arr.push_back(temp_FIO);
+            if (temp_SecondName.empty() && temp_FirstName.empty() && temp_Patronymic.empty())
+            {
+                break;
+            }
             cout << "Продолжить? (y - Yes(да) / n - No(нет))\n:";
             cin >> m;
             switch (m)
