@@ -10,7 +10,7 @@ int Analysis::get_cin_n()
         getline(cin, temp);
         istringstream iss(temp);
         int number;
-        if (iss >> number && number == 1 || number == 2)
+        if ((iss >> number) && (number == 1 || number == 2))
         {
             return number;
         }
@@ -18,7 +18,7 @@ int Analysis::get_cin_n()
     }
 }
 
-void add_out_of_file(vector<Name>& arr, Name& temp_FIO)
+void Analysis::add_out_of_file(vector<Name>& arr, Name& temp_FIO)
 {
     ifstream f("input.md");
     string temp_SecondName, temp_FirstName, temp_Patronymic;

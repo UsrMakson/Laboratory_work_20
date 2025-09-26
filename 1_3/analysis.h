@@ -12,5 +12,5 @@ public:
 	static int get_cin_n();
 	static int get_cin_height();
 	static int get_file_height();
-	void add_out_of_file(vector<Name>& arr, Name& temp_FIO);
+	static void add_out_of_file(vector<Name>& arr, Name& temp_FIO);
 };
