@@ -20,7 +20,7 @@ int Analysis::get_cin_n()
 
 void Analysis::add_out_of_file(vector<Name>& arr, Name& temp_FIO)
 {
-    ifstream f("input.md");
+    ifstream f("imput.md");
     string temp_SecondName, temp_FirstName, temp_Patronymic;
     string line;
     int count = 0;

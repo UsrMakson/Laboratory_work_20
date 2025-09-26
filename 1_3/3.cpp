@@ -37,7 +37,6 @@ int main() {
     char m;
     cout << "выберите способ ввода (1 - консоль / 2 - файл)\n:";
     n = Analysis::get_cin_n();
-    cin.ignore();
     system("cls");
     sub(-1);
     while (b)
