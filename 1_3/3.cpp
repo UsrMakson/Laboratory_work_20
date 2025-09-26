@@ -16,7 +16,7 @@ void sub(int temp)
 {
     switch (temp)
     {
-    case -1: {cout << "_____чтобы закончить ввод, напишите stop_____"; break; }
+    case -1: {cout << "_____чтобы закончить ввод, напишите stop_____\n"; break; }
     case 0: {cout << "\nвведите Фамилию: "; break; }
     case 1: {cout << "\nвведите Имя: "; break; }
     case 2: {cout << "\nвведите Отчество: "; break; }
@@ -28,45 +28,19 @@ void sub(int temp)
 void add_out_of_file(vector<Name>& arr, Name& temp_FIO)
 {
     ifstream f("input.md");
-    string line;
-    while (getline(f, line))
+    string temp_SecondName, temp_FirstName, temp_Patronymic;
+    while (f >> temp_SecondName >> temp_FirstName >> temp_Patronymic)
     {
         temp_FIO.clear();
-        if (line.empty()) continue;
-        istringstream iss(line);
-        vector<string> words;
-        words.clear();
-        string word ="";
-        while (iss >> word)
-        {
-            words.push_back(word);
-        }
-        switch (words.size())
-        {
-        case 1:
-        {
-            temp_FIO.Set_SecondName(words[0]);
-            break;
-        }
-        case 2:
-        {
-            temp_FIO.Set_SecondName(words[0]);
-            temp_FIO.Set_FirstName(words[1]);
-            break;
-        }
-        case 3:
-        {
-            temp_FIO.Set_SecondName(words[0]);
-            temp_FIO.Set_FirstName(words[1]);
-            temp_FIO.Set_Patronymic(words[2]);
-            break;
-        }
-        default:
-            break;
-        }
+        temp_FIO.Set_SecondName(temp_SecondName);
+        temp_FIO.Set_FirstName(temp_FirstName);
+        temp_FIO.Set_Patronymic(temp_Patronymic);
         arr.push_back(temp_FIO);
     }
+
+    f.close();
 }
+
 int main() {
     setlocale(0, "");
     SetConsoleCP(1251);
