@@ -2,10 +2,10 @@
 
 using namespace std;
 
-Name::Name(const std::string& second_name, const std::string& first_name, const std::string& patonymic):
-    Second_name(second_name),
-    First_name(first_name), 
-    Patronymic(patonymic)
+Name::Name(const std::string& Second_name, const std::string& First_name, const std::string& Patronymic):
+    Second_name(Second_name),
+    First_name(First_name), 
+    Patronymic(Patronymic)
 {
 }
 

@@ -10,7 +10,5 @@ class Analysis
 {
 public:
 	static int get_cin_n();
-	static int get_cin_height();
-	static int get_file_height();
-	static void add_out_of_file(vector<Name>& arr, Name& temp_FIO);
+	void add_out_of_file(std::vector<Name>& arr, Name& temp_FIO);
 };

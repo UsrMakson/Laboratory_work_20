@@ -9,7 +9,7 @@ private:
 	std::string First_name;
 	std::string Patronymic;
 public:
-	Name(const std::string& second_name, const std::string& first_name, const std::string& patronymic);
+	Name(const std::string& Second_name, const std::string& First_name, const std::string& Patronymic);
 	void print() const;
 	void clear();
 	bool is_Empty() const;
@@ -18,5 +18,5 @@ public:
 	std::string Get_Patronymic() const;
 	void Set_SecondName(const std::string Second_Name);
 	void Set_FirstName(const std::string First_Name);
-	void Set_Patronymic(const std::string patronymic);
+	void Set_Patronymic(const std::string Patronymic);
 };
