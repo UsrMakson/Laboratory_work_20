@@ -54,17 +54,18 @@ int main() {
             getline(cin, temp_FirstName);
             sub(2);
             getline(cin, temp_Patronymic);
-            temp_FIO.clear();
-            temp_FIO.Set_SecondName(temp_SecondName);
-            temp_FIO.Set_FirstName(temp_FirstName);
-            temp_FIO.Set_Patronymic(temp_Patronymic);
-            arr.push_back(temp_FIO);
             if (temp_SecondName.empty() && temp_FirstName.empty() && temp_Patronymic.empty())
             {
                 break;
             }
+            temp_FIO.Set_SecondName(temp_SecondName);
+            temp_FIO.Set_FirstName(temp_FirstName);
+            temp_FIO.Set_Patronymic(temp_Patronymic);
+            arr.push_back(temp_FIO);
+           
             cout << "Продолжить? (y - Yes(да) / n - No(нет))\n:";
             cin >> m;
+            cin.ignore();
             switch (m)
             {
             case 'y': {break; }
