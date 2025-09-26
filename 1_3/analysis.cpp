@@ -1,9 +1,5 @@
 #include "analysis.h"
 
-#include <iostream>
-#include <sstream>
-#include <fstream>
-
 using namespace std;
 
 int Analysis::get_cin_n()
@@ -22,34 +18,18 @@ int Analysis::get_cin_n()
     }
 }
 
-
-int Analysis::get_file_height() {
-    int result;
-    fstream f;
-    f.open("imput.md");
-    string temp;
-    while (true) {
-        f >> temp;
-        result = 0;
-        while (f >> temp) {
-            int number;
-            istringstream iss(temp);
-            bool is_valid = (iss >> number) && iss.eof();
-            bool in_range = (number >= -1000000) && (number <= 1000000);
-            if (is_valid && in_range)
-                result = number;
-        }
-        //### условия задачи ###
-        const bool req = (true);
-        //######################
-        if (req) //уловия задачи
-        {
-            f.close();
-            return result;
-        }
-        else {
-            f.close();
-            cout << "\nНепривильно, смотрите уловие внимательнее!\nА теперь перепишите файл:\n: ";
-        }
+void add_out_of_file(vector<Name>& arr, Name& temp_FIO)
+{
+    ifstream f("input.md");
+    string temp_SecondName, temp_FirstName, temp_Patronymic;
+    while (f >> temp_SecondName >> temp_FirstName >> temp_Patronymic)
+    {
+        temp_FIO.clear();
+        temp_FIO.Set_SecondName(temp_SecondName);
+        temp_FIO.Set_FirstName(temp_FirstName);
+        temp_FIO.Set_Patronymic(temp_Patronymic);
+        arr.push_back(temp_FIO);
     }
+
+    f.close();
 }

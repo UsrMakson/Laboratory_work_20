@@ -25,22 +25,6 @@ void sub(int temp)
     }
 }
 
-void add_out_of_file(vector<Name>& arr, Name& temp_FIO)
-{
-    ifstream f("input.md");
-    string temp_SecondName, temp_FirstName, temp_Patronymic;
-    while (f >> temp_SecondName >> temp_FirstName >> temp_Patronymic)
-    {
-        temp_FIO.clear();
-        temp_FIO.Set_SecondName(temp_SecondName);
-        temp_FIO.Set_FirstName(temp_FirstName);
-        temp_FIO.Set_Patronymic(temp_Patronymic);
-        arr.push_back(temp_FIO);
-    }
-
-    f.close();
-}
-
 int main() {
     setlocale(0, "");
     SetConsoleCP(1251);
@@ -52,6 +36,7 @@ int main() {
     char m;
     cout << "выберите способ ввода (1 - консоль / 2 - файл)\n:";
     n = Analysis::get_cin_n();
+    cin.ignore();
     system("cls");
     sub(-1);
     while (b)
@@ -87,7 +72,12 @@ int main() {
             }
             break;
         }
-        case 2: {add_out_of_file(arr, temp_FIO); b = false; break; }
+        case 2: 
+        {
+            Analysis::add_out_of_file(arr, temp_FIO);
+            b = false;
+            break; 
+        }
         default:
             break;
         }

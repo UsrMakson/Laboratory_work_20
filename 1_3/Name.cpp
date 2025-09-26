@@ -5,7 +5,7 @@ using namespace std;
 Name::Name(const std::string& Second_name, const std::string& First_name, const std::string& Patonymic):
     Second_name(Second_name),
     First_name(First_name), 
-    Patronymic(Patronymic)
+    Patronymic(Patonymic)
 {
 }
 
