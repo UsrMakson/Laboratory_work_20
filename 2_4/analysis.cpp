@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "analysis.h"
 
 #include <iostream>
@@ -54,7 +53,6 @@ int Analysis::get_file_height() {
         }
     }
 }
-=======
 #include "analysis.h"
 
 #include <iostream>
@@ -110,4 +108,3 @@ int Analysis::get_file_height() {
         }
     }
 }
->>>>>>> 7daa9e4afda4d958361cd9196d3aa983099d1102

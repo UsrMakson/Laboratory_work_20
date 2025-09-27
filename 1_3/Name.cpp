@@ -66,7 +66,3 @@ void Name::Set_Patronymic(const std::string patronymic)
 {
     Patronymic = patronymic;
 }
-bool Name::is_Empty() const
-{
-    return Second_name.empty() && First_name.empty() && Patronymic.empty();
-}
