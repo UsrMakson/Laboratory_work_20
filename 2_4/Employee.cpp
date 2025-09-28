@@ -2,9 +2,9 @@
 
 using namespace std;
 
-Employee::Employee(const string& Name, const int Office) :
+Employee::Employee(const string& Name, const int Office_Name) :
 	Name(Name),
-	Office(Office)
+	Office_Name(Office_Name)
 {
 }
 void Employee::print() const
@@ -14,7 +14,7 @@ void Employee::print() const
 void Employee::clear()
 {
 	Employee::Name = "";
-	Employee::Office = 0;
+	Employee::Office_Name = 0;
 }
 string Employee::Get_Name() const
 {
@@ -22,13 +22,13 @@ string Employee::Get_Name() const
 }
 int Employee::Get_Office() const
 {
-	return Office;
+	return Office_Name;
 }
 void Employee::Set_Name(const string name)
 {
 	Name = name;
 }
-void Employee::Set_Office(const int office)
+void Employee::Set_Office(const int Office_Name)
 {
-	Office = office;
+	Office_Name = Office_Name;
 }
