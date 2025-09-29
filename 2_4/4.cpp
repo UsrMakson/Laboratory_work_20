@@ -101,7 +101,7 @@ int main() {
     }
     system("cls");
     cout << "----------------------------------------------------\n";
-    for (Employee i : arr)
+    for (Employee i : arr) 
     {
         i.print();
     }
