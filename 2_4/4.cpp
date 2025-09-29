@@ -11,7 +11,6 @@
 #include <string>
 #include <windows.h>
 #include <limits>
-#include <set>
 
 using namespace std;
 
@@ -33,7 +32,7 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     vector <Employee> arr;
-    set <Office> arr2;
+    vector <Office> arr2;
     Office temp_Office("", "");
     Employee temp_Employee("", temp_Office);
     bool b = true;
@@ -55,7 +54,7 @@ int main() {
         }
         temp_Employee.Set_Name(temp_Name);
         temp_Employee.Set_Office(temp_Office_Name);
-        arr2.insert(temp_Employee.Get_Office());
+        arr2.push_back(temp_Employee.Get_Office());
         arr.push_back(temp_Employee);
 
         cout << "Продолжить? (y - Yes(да) / n - No(нет))\n:";
@@ -69,8 +68,24 @@ int main() {
         }
     }
     system("cls");
-    b = true;
-    for (Office i : arr2)
+    vector<Office> arr3;
+    for (const Office& i : arr2)
+    {
+        bool f = false;
+        for (const Office& j : arr3)
+        {
+            if (i.Get_Office_Name() == j.Get_Office_Name())
+            {
+                f = true;
+                break;
+            }
+        }
+        if (!f)
+        {
+            arr3.push_back(i);
+        }
+    }
+    for (Office i :arr3)
     {
         sub(2);
         string temp_Boss = "";
@@ -85,10 +100,12 @@ int main() {
         }
     }
     system("cls");
+    cout << "----------------------------------------------------\n";
     for (Employee i : arr)
     {
         i.print();
     }
+    cout << "----------------------------------------------------\n";
     system("pause");
     return 0;
 }
