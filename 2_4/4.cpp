@@ -1,5 +1,6 @@
 ﻿#include "analysis.h"
 #include "Employee.h"
+#include "Office.h"
 
 #include <iostream>
 #include <vector>
@@ -20,6 +21,7 @@ void sub(int temp)
     case -1: {cout << "_____чтобы закончить ввод, напишите stop_____\n"; break; }
     case 0: {cout << "\nвведите Фамилию: "; break; }
     case 1: {cout << "\nвведите Отдел: "; break; }
+    case 2: {cout << "\nсделайте сотрудника начальником отдела "; break; }
     default:
         break;
     }
@@ -30,54 +32,60 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     vector <Employee> arr;
-    Employee temp_Eployee("", 0);
+    vector <Office> arr2;
+    Office temp_Office("", "");
+    Employee temp_Eployee("", temp_Office);
     bool b = true;
-    int n;
     char m;
-    cout << "выберите способ ввода (1 - консоль / 2 - файл)\n:";
-    n = Analysis::get_cin_n();
     system("cls");
     sub(-1);
     while (b)
     {
         temp_Eployee.clear();
         string temp_Name = "";
-        int temp_Office = 0;
-        switch (n)
+        string temp_Office_Name = "";
+        sub(0);
+        getline(cin, temp_Name);
+        sub(1);
+        getline(cin, temp_Office_Name);
+        if (temp_Name.empty() && temp_Office_Name.empty())
         {
-        case 1:
-        {
-            sub(0);
-            getline(cin, temp_Name);
-            sub(1);
-            getline(cin, temp_Office);
-            if (temp_Name.empty() && temp_Office.empty())
-            {
-                break;
-            }
-            temp_Employee.Set_Name(temp_Name);
-
-            arr.push_back(temp_Employee);
-
-            cout << "Продолжить? (y - Yes(да) / n - No(нет))\n:";
-            cin >> m;
-            cin.ignore();
-            switch (m)
-            {
-            case 'y': {break; }
-            case 'n': { b = false; break; }
-            default: break;
-            }
             break;
         }
-        case 2:
+        temp_Eployee.Set_Name(temp_Name);
+        temp_Eployee.Set_Office(temp_Office_Name);
+        arr2.push_back(temp_Eployee.Get_Office());
+
+        arr.push_back(temp_Employe);
+
+        cout << "Продолжить? (y - Yes(да) / n - No(нет))\n:";
+        cin >> m;
+        cin.ignore();
+        switch (m)
         {
-            Analysis::add_out_of_file(arr, temp_Employee);
-            b = false;
-            break;
+        case 'y': {break; }
+        case 'n': { b = false; break; }
+        default: break;
         }
-        default:
-            break;
+        break;
+    }
+    system("cls");
+    b = true;
+    while (b)
+    {
+        for (Office i : arr2)
+        {
+            sub(2);
+            string temp_Boss = "";
+            cout << i.Get_Office_Name() <<": ";
+            getline(cin, temp_Boss);
+            for (Employee j : arr)
+            {
+                if (j.Get_Office_Name() == i.Get_Office_Name())
+                {
+                    j.Set_Boss_Name(temp_Boss);
+                }
+            }
         }
     }
     system("cls");
