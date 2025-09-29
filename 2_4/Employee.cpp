@@ -43,7 +43,7 @@ Office Employee::Get_Office() const
 }
 std::string Employee::Get_Office_Name() const
 {
-	return Get_Office_Name();
+	return Office_Name.Get_Office_Name();
 }
 void Employee::Set_Name(const string name)
 {
