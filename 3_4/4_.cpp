@@ -99,9 +99,26 @@ int main() {
             }
         }
     }
+    vector<Employee> arr4;
+    string link_employee;
+    cout << "\nна кого из сотродников у вас ссылка?\n: ";
+    cin >> link_employee;
+for (Employee i: arr)
+{
+    if (i.Get_Name() == link_employee)
+    {
+        for (Employee j : arr)
+        {
+            if (i.Get_Office_Name() == j.Get_Office_Name())
+            {
+                arr4.push_back(j);
+            }
+        }
+    }
+}
     system("cls");
     cout << "----------------------------------------------------\n";
-    for (Employee i : arr)
+    for (Employee i : arr4)
     {
         i.print();
     }
