@@ -103,19 +103,19 @@ int main() {
     string link_employee;
     cout << "\nна кого из сотродников у вас ссылка?\n: ";
     cin >> link_employee;
-for (Employee i: arr)
-{
-    if (i.Get_Name() == link_employee)
+    for (const Employee& i : arr)
     {
-        for (Employee j : arr)
+        if (i.Get_Name() == link_employee)
         {
-            if (i.Get_Office_Name() == j.Get_Office_Name())
+            for (Employee j : arr)
             {
-                arr4.push_back(j);
+                if (i.Get_Office_Name() == j.Get_Office_Name())
+                {
+                    arr4.push_back(j);
+                }
             }
         }
     }
-}
     system("cls");
     cout << "----------------------------------------------------\n";
     for (Employee i : arr4)
