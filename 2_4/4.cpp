@@ -34,14 +34,14 @@ int main() {
     vector <Employee> arr;
     vector <Office> arr2;
     Office temp_Office("", "");
-    Employee temp_Eployee("", temp_Office);
+    Employee temp_Employee("", temp_Office);
     bool b = true;
     char m;
     system("cls");
     sub(-1);
     while (b)
     {
-        temp_Eployee.clear();
+        temp_Employee.clear();
         string temp_Name = "";
         string temp_Office_Name = "";
         sub(0);
@@ -52,11 +52,11 @@ int main() {
         {
             break;
         }
-        temp_Eployee.Set_Name(temp_Name);
-        temp_Eployee.Set_Office(temp_Office_Name);
-        arr2.push_back(temp_Eployee.Get_Office());
+        temp_Employee.Set_Name(temp_Name);
+        temp_Employee.Set_Office(temp_Office_Name);
+        arr2.push_back(temp_Employee.Get_Office());
 
-        arr.push_back(temp_Employe);
+        arr.push_back(temp_Employee);
 
         cout << "Продолжить? (y - Yes(да) / n - No(нет))\n:";
         cin >> m;
@@ -71,20 +71,17 @@ int main() {
     }
     system("cls");
     b = true;
-    while (b)
+    for (Office i : arr2)
     {
-        for (Office i : arr2)
+        sub(2);
+        string temp_Boss = "";
+        cout << i.Get_Office_Name() << ": ";
+        getline(cin, temp_Boss);
+        for (Employee j : arr)
         {
-            sub(2);
-            string temp_Boss = "";
-            cout << i.Get_Office_Name() <<": ";
-            getline(cin, temp_Boss);
-            for (Employee j : arr)
+            if (j.Get_Office_Name() == i.Get_Office_Name())
             {
-                if (j.Get_Office_Name() == i.Get_Office_Name())
-                {
-                    j.Set_Boss_Name(temp_Boss);
-                }
+                j.Set_Boss_Name(temp_Boss);
             }
         }
     }

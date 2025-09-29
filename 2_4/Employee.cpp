@@ -41,7 +41,7 @@ Office Employee::Get_Office() const
 {
 	return Office_Name;
 }
-std::string Get_Office_Name() const
+std::string Employee::Get_Office_Name() const
 {
 	return Get_Office_Name();
 }
